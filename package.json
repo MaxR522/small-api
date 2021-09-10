@@ -1,0 +1,42 @@
+{
+  "name": "small-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MaxR522/small-api.git"
+  },
+  "keywords": [
+    "nodeJS",
+    "express",
+    "mongoDB"
+  ],
+  "author": "Mario Randrianomearisoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxR522/small-api/issues"
+  },
+  "homepage": "https://github.com/MaxR522/small-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.5",
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.4.0"
+  }
+}

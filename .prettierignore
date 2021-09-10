@@ -1,0 +1,7 @@
+# Ignore artifacts:
+node_modules/
+
+# Ignore lock
+*.lock
+yarn.lock
+package-lock.json
