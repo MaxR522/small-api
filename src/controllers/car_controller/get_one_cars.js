@@ -4,7 +4,11 @@ module.exports = (req, res) => {
   const _id = req.params.id;
 
   Car.findOne({ _id: _id }, (error, car) => {
-    if (error) throw new Error(error);
+    if (error) {
+      return res.status(400).json({
+        error,
+      });
+    }
 
     if (!car) {
       return res.status(404).json({

@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const config = require('./src/config');
 const mongoose = require('mongoose');
 const Routes = require('./src/routes');
+const cors = require('cors');
 
 const app = Express();
 
@@ -14,6 +15,9 @@ const app = Express();
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
+// CORS
+app.use(cors(config.corsOption));
+
 // Security
 app.use(helmet());
 
@@ -22,6 +26,26 @@ app.use(helmet());
  */
 
 app.use(Routes);
+
+/**
+ * ERROR HANDLER
+ */
+
+// Return 404 when not found endpoint
+app.use((req, res) => {
+  res.status(404).json({
+    message: `endpoint ${req.originalUrl} not found`,
+  });
+});
+
+// Handle syntax error on request
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError) {
+    return res.status(400).json({
+      message: 'The body of your request is not valid json!',
+    });
+  }
+});
 
 /**
  * DB CONNEXION

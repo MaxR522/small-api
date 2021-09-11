@@ -10,7 +10,11 @@ module.exports = (req, res) => {
   });
 
   newComment.save((error) => {
-    if (error) throw new Error(error);
+    if (error) {
+      return res.status(400).json({
+        error,
+      });
+    }
 
     return res.status(201).json({
       message: 'comment created successfully',

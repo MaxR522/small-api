@@ -7,7 +7,11 @@ module.exports = (req, res) => {
   const { email, password } = req.body;
 
   User.findOne({ email }, (error, user) => {
-    if (error) throw new Error(error);
+    if (error) {
+      return res.status(400).json({
+        error,
+      });
+    }
 
     if (!user) {
       return res.status(404).json({
@@ -17,7 +21,11 @@ module.exports = (req, res) => {
 
     if (user) {
       bcrypt.compare(password, user.password, async (error, isMatch) => {
-        if (error) throw new Error(error);
+        if (error) {
+          return res.status(400).json({
+            error,
+          });
+        }
 
         if (!isMatch) {
           return res.status(401).json({

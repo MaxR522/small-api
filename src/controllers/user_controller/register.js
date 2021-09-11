@@ -12,7 +12,11 @@ module.exports = (req, res) => {
   });
 
   newUser.save(async (error) => {
-    if (error) throw new Error(error);
+    if (error) {
+      return res.status(400).json({
+        error,
+      });
+    }
 
     const payload = {
       id: newUser._id,
