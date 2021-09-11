@@ -2,6 +2,7 @@ const Express = require('express');
 const helmet = require('helmet');
 const config = require('./src/config');
 const mongoose = require('mongoose');
+const Routes = require('./src/routes');
 
 const app = Express();
 
@@ -14,11 +15,13 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
 // Security
-app.use(helmet);
+app.use(helmet());
 
 /**
  * ROUTES
  */
+
+app.use(Routes);
 
 /**
  * DB CONNEXION

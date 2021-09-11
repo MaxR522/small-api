@@ -3,6 +3,7 @@ require('dotenv').config();
 const mongooseConfig = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  autoIndex: true,
 };
 const port = process.env.PORT;
 const mongoUrl = process.env.MONGO_URL;

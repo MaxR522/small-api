@@ -9,9 +9,6 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
-  // Array of Object [{fullname, content}]
-  comment: Array,
 });
 
 const Car = mongoose.model('Car', carSchema);
