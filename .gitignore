@@ -6,10 +6,6 @@ dist/
 node_modules/
 node_modules
 
-# dotenv environment variables file
-.env
-.env.test
-
 # Logs
 logs
 *.log
